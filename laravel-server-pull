@@ -1,0 +1,23 @@
+#!/bin/bash
+php artisan down
+git pull
+rm -rf node_modules
+rm -rf vendor
+rm -rf public/storage
+composer install --no-dev
+npm i
+npm run prod
+php artisan cache:clear
+php artisan view:clear
+php artisan config:clear
+php artisan event:clear
+php artisan route:clear
+php artisan optimize:clear
+php artisan view:cache
+php artisan event:cache
+php artisan config:cache
+php artisan route:cache
+php artisan optimize
+php artisan package:discover
+php artisan storage:link
+php artisan up
