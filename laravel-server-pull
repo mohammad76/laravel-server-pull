@@ -1,10 +1,10 @@
 #!/bin/bash
 php artisan down
 git pull
-rm -rf node_modules
 rm -rf vendor
-rm -rf public/storage
 composer install --no-dev
+composer dumpautoload --optimize
+php artisan up
 npm i
 npm run prod
 php artisan cache:clear
@@ -19,5 +19,3 @@ php artisan config:cache
 php artisan route:cache
 php artisan optimize
 php artisan package:discover
-php artisan storage:link
-php artisan up
